@@ -1,0 +1,41 @@
+<body>
+<img src="https://http.cat/404.png">
+<br>
+<script>
+const test = 0;
+let userAgent = window.navigator.userAgent;
+
+function replace(replace) {
+	const img = document.getElementsByTagName("img")[0];
+	if (replace === true) {
+		img.src = "file:///home/defautluser0/html/images/404.png";
+	} else if (replace === false) {
+		img.src = "https://http.cat/404.png";
+	}
+
+}
+
+if (test === 1) {
+	userAgent = "Mozilla/5.0 (Windows NT 10.0; Trident/7.0; rv:11.0) like Gecko";
+	let button1 = document.createElement("button");
+	let button2 = document.createElement("button");
+	let text1 = document.createTextNode("normal");
+	let text2 = document.createTextNode("ie");
+	button1.appendChild(text1);
+	button2.appendChild(text2);
+	document.getElementsByTagName("body")[0].appendChild(button1);
+	document.getElementsByTagName("body")[0].appendChild(button2);
+	button1.addEventListener("click", () => {
+		replace(false);
+		console.log("normal");
+	});
+
+	button2.addEventListener("click", () => {
+		replace(true);
+		console.log("ie");
+	});
+}
+
+replace(userAgent.includes("Trident"));
+</script>
+</body>
